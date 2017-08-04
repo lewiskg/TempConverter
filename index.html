@@ -11,14 +11,15 @@
 <body>
 
 <div id="main">
-	<form action="converter.js">
+	<form>
 		<label for="inputTemp">Input temperature:</label>
-		<input id="inputTemp" name="inputTemp" type="number" placeholder="input must be numeric" size="35">
+		<input id="inputTemp" name="inputTemp" type="number" placeholder="input must be numeric">
+		<span id="enternumber"></span>
 		<ul id="radio_F_or_C">
-			<li><input type="radio" name="tempSelector" value="fahrenheit">Fahrenheit to Celsius</li>
-			<li><input type="radio" name="tempSelector" value="celsius">Celsius to Fahrenheit</li>
+			<li><input id="F" type="radio" name="tempSelector" value="fahrenheit">Fahrenheit to Celsius</li>
+			<li><input id="C" type="radio" name="tempSelector" value="celsius">Celsius to Fahrenheit</li>
 		</ul>
-		<input type="submit" value="Convert Temp">
+		<input id="converter" type="submit" value="Convert Temp">
 		<input type="reset" value="Reset">
 	</form>
 </div>
