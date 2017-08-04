@@ -28,30 +28,44 @@ function determineConverter () {
  	}
 }
 
-// Function to convert Fahrenheit to Celsius
+// Function to convert Fahrenheit to Celsius; returns object with temp and units
 function toCelsius (inputTemp) {
-	var Tf = inputTemp * (9/5) + 32;
+	var Tf = {
+		temp: inputTemp * (9/5) + 32,
+		units: 'F'
+	};
 	return Tf;
 }
 
-// Function to convert Celsius to Fahrenheit
+// Function to convert Celsius to Fahrenheit; returns object with temp and units
 function toFahrenheit (inputTemp) {
-	var Tc = (inputTemp - 32) * (5/9);
+	var Tc = {
+		temp: (inputTemp - 32) * (5/9),
+		units: 'C'
+	};
 	return Tc;
 }
 
 // Function to print result to webpage
+// Colors output temperture either: hot, cold, or comfortable
 function outPutToScreen (outTemp) {
-	if (typeof(outTemp) === "number") {
-		document.getElementById("outputTemp").innerHTML = outTemp.toFixed(2);
+	if (typeof(outTemp) === "object") {
+		var color = "comfortable";
+		if ( (outTemp.units==='F' && outTemp.temp > 90) || (outTemp.units==='C' && outTemp.temp > 32) ) { 
+			color = "hot";
+		}
+		else if ( (outTemp.units==='F' && outTemp.temp < 32) || (outTemp.units==='C' && outTemp.temp < 0) ) { 
+			color = "cold";
+		}
+		var outputString = "<span class=" + color + ">" + outTemp.temp.toFixed(2) + " " + outTemp.units + "</span>";
+		document.getElementById("outputTemp").innerHTML = outputString;
 	}
 	else {
 		document.getElementById("outputTemp").innerHTML = outTemp;
 	}
-
 }
 
-// Function to clear result on webpage
+// Function to clear result on page
 function clearTheScreen () {
 	document.getElementById("outputTemp").innerHTML = "";
 	document.getElementById("enternumber").innerHTML = "";
