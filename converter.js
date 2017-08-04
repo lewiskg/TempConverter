@@ -1,18 +1,21 @@
-console.log(parseInt(document.getElementById("inputTemp").value));
+function determineConverter () {
+//console.log(parseInt(document.getElementById("inputTemp").value));
+	var inputTemp = parseInt(document.getElementById("inputTemp").value);
 
-var inputTemp = parseInt(document.getElementById("inputTemp").value);
-
-while (isNaN(inputTemp)) {
-	
-}
-
-/*
-function determineConverter (inputTemp) {
- 	var outputTemp = 0;
- 	if (document.getElementById("F") !== 'undefined') {
- 		outputTemp = toFahrenheit(inputTemp);
- 	} else {
- 		outputTemp = toCelsius(inputTemp);
+	if (isNaN(inputTemp)) {
+		document.getElementById("enternumber").innerHTML = "please enter a valid number";
+	} 
+	else {
+ 	
+ 		if (document.getElementById('F').checked) {
+ 			outPutToScreen(toFahrenheit(inputTemp));
+		} 
+		else if (document.getElementById('C').checked) {
+ 			outPutToScreen(toCelsius(inputTemp));
+		} 
+		else {
+			outPutToScreen("Select temperture units");
+ 		}
  	}
 }
 
@@ -26,18 +29,18 @@ function toFahrenheit (inputTemp) {
 	return Tc;
 }
 
-function outPutToScreen ()
+function outPutToScreen (outTemp) {
+	document.getElementById("outputTemp").innerHTML = outTemp;
+}
 
 // Get a reference to the button element in the DOM
 var button = document.getElementById("converter");
 
 // This function should determine which conversion should
 // happen based on which radio button is selected.
-function determineConverter (clickEvent) {
-  console.log("event", clickEvent);
-}
+//function determineConverter (clickEvent) {
+//  console.log("event", clickEvent);
+//}
 
 // Assign a function to be executed when the button is clicked
 button.addEventListener("click", determineConverter());
-
-*/
