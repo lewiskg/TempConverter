@@ -57,7 +57,7 @@ function outPutToScreen (outTemp) {
 		else if ( (outTemp.units==='F' && outTemp.temp < 32) || (outTemp.units==='C' && outTemp.temp < 0) ) { 
 			color = "cold";
 		}
-		var outputString = "<span class=" + color + ">" + outTemp.temp.toFixed(2) + " " + outTemp.units + "</span>";
+		var outputString = "<span class=" + color + ">" + outTemp.temp.toFixed(2) + " &deg" + outTemp.units + "</span>";
 		document.getElementById("outputTemp").innerHTML = outputString;
 	}
 	else {
