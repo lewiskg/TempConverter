@@ -16,10 +16,10 @@ function determineConverter () {
 	} 
 	else {
 		
- 		if (document.getElementById('F').checked) {
+ 		if (document.getElementById('F_to_C').checked) {
  			outPutToScreen(toFahrenheit(inputTemp));
 		} 
-		else if (document.getElementById('C').checked) {
+		else if (document.getElementById('C_to_F').checked) {
  			outPutToScreen(toCelsius(inputTemp));
 		} 
 		else {
@@ -28,8 +28,8 @@ function determineConverter () {
  	}
 }
 
-// Function to convert Fahrenheit to Celsius; returns object with temp and units
-function toCelsius (inputTemp) {
+// Function to convert Celsius to Fahrenheit; returns object with temp and units
+function toFahrenheit (inputTemp) {
 	var Tf = {
 		temp: inputTemp * (9/5) + 32,
 		units: 'F'
@@ -37,8 +37,8 @@ function toCelsius (inputTemp) {
 	return Tf;
 }
 
-// Function to convert Celsius to Fahrenheit; returns object with temp and units
-function toFahrenheit (inputTemp) {
+// Function to convert Fahrenheit to Celsius; returns object with temp and units
+function toCelsius (inputTemp) {
 	var Tc = {
 		temp: (inputTemp - 32) * (5/9),
 		units: 'C'
