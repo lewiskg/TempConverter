@@ -17,10 +17,10 @@ function determineConverter () {
 	else {
 		
  		if (document.getElementById('F_to_C').checked) {
- 			outPutToScreen(toFahrenheit(inputTemp));
+ 			outPutToScreen(toCelsius(inputTemp));
 		} 
 		else if (document.getElementById('C_to_F').checked) {
- 			outPutToScreen(toCelsius(inputTemp));
+ 			outPutToScreen(toFahrenheit(inputTemp));
 		} 
 		else {
 			outPutToScreen("Select temperture units");
