@@ -3,7 +3,7 @@ var button = document.getElementById("converter");
 var resetButton = document.getElementById("reset");
 var f = document.getElementsByTagName("form");
 
-// Button used to execute converstion function
+// Button used to execute conversion function
 button.addEventListener("click", determineConverter);
 resetButton.addEventListener("click", clearTheScreen);
 
@@ -29,13 +29,13 @@ function determineConverter () {
 	else {
 		
  		if (document.getElementById('F_to_C').checked) {
- 			outPutToScreen(toCelsius(inputTemp));
+ 			outputToScreen(toCelsius(inputTemp));
 		} 
 		else if (document.getElementById('C_to_F').checked) {
- 			outPutToScreen(toFahrenheit(inputTemp));
+ 			outputToScreen(toFahrenheit(inputTemp));
 		} 
 		else {
-			outPutToScreen("Select temperture units");
+			outputToScreen("Select temperture units");
  		}
  	}
 }
@@ -60,7 +60,7 @@ function toCelsius (inputTemp) {
 
 // Function to print result to webpage
 // Colors output temperture either: hot, cold, or comfortable
-function outPutToScreen (outTemp) {
+function outputToScreen (outTemp) {
 	if (typeof(outTemp) === "object") {
 		var color = "comfortable";
 		if ( (outTemp.units==='F' && outTemp.temp > 90) || (outTemp.units==='C' && outTemp.temp > 32) ) { 
