@@ -1,10 +1,22 @@
-// Reference to the button element in the DOM
+// Reference to the button elements and form element in the DOM
 var button = document.getElementById("converter");
 var resetButton = document.getElementById("reset");
+var f = document.getElementsByTagName("form");
 
-// Function to be executed when the button is clicked
+// Button used to execute converstion function
 button.addEventListener("click", determineConverter);
 resetButton.addEventListener("click", clearTheScreen);
+
+// Used to prevent page refresh if 'enter' key is depressed
+f[0].addEventListener('submit', function(e){e.preventDefault(); determineConverter();});
+
+// Execute function determineConverter() if 'enter' key pressed
+window.addEventListener('keydown', function(e){e.keyCode===13 ? determineConverter() : console.log('false');});
+
+
+////////////////////
+//  FUNCTIONS ()  //
+////////////////////
 
 function determineConverter () {
 //console.log(parseInt(document.getElementById("inputTemp").value));
